@@ -1,5 +1,5 @@
 body {
-  background-color: #f2f6d0;
+  background-color: #cccccc;
 }
 h1 {
   text-align: center;
@@ -23,7 +23,6 @@ textarea,
 input {
   display: block;
   width: 100%;
-  background-color: #fcf5c7;
 }
 input {
   height: 36px;
