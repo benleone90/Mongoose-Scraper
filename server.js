@@ -1,6 +1,7 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var path = require("path");
 
 var axios = require("axios");
 var cheerio = require("cheerio");
@@ -25,7 +26,14 @@ app.use(express.static("public"));
 var MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost/mongooseScraper";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true
+});
+
+// Routing to homepage
+app.get("/", function(req, res) {
+  res.json(path.join(__dirname, "public/index.html"));
+});
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
